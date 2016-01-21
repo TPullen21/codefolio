@@ -1,4 +1,8 @@
-
+Template.work.helpers({
+	projects: function(){
+		return Projects.find();
+	}
+});
 
 Template.login.events({
 	'submit .login-user': function(event){
@@ -38,4 +42,20 @@ Template.layout.events({
         // Prevent Submit
         return false;
 	}
+});
+
+Template.registerHelper('formatDate', function(date){
+	return moment(date).format('MMM Do YYYY, h:mm a');
+});
+
+Template.registerHelper('getSiteTitle', function(){
+	return 'CodeFolio';
+});
+
+Template.registerHelper('getAdminName', function(){
+	return 'John Doe';
+});
+
+Template.registerHelper('getAdminImage', function(){
+	return '/assets/img/user.png';
 });
